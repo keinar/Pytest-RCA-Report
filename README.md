@@ -18,6 +18,13 @@ Generates a clear Root Cause Analysis (RCA) report, supporting rapid investigati
 
 ---
 
+## Demo
+
+<p align="center">
+  <img src="./demo.gif" width="900" alt="RCA Dashboard Demo">
+</p>
+
+
 ## Quick Start
 
 ### 1. **Download and Set Up**
