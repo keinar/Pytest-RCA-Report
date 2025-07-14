@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RCA Report</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Root Cause Analysis Report</h1>
+
+    <section id="summary">
+        <h2>Results Summary</h2>
+        <div id="summary-table"></div>
+    </section>
+
+    <section id="summary-graph-section">
+        <h2>Summary Graphs</h2>
+        <div class="graph-row">
+            <canvas id="summary-pie" width="200" height="200"></canvas>
+            <canvas id="summary-bar" width="200" height="200"></canvas>
+        </div>
+    </section>
+
+    <section id="anomalies">
+        <h2>Log Anomalies</h2>
+        <ul id="anomaly-list"></ul>
+    </section>
+
+    <section id="root-cause">
+        <h2>Root Cause Analysis</h2>
+        <table id="rca-table">
+            <thead>
+            <tr>
+                <th>Module</th>
+                <th>Failures</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="visuals">
+        <h2>Execution Time Distribution</h2>
+        <img id="time-dist"/>
+        <h3>Slowest Tests (>= highest bin)</h3>
+        <ul id="slow-tests"></ul>
+    </section>
+
+    <section id="recommendations">
+        <h2>Actionable Recommendations</h2>
+        <ol id="rec-list"></ol>
+    </section>
+
+    <section id="test-table-section">
+        <h2>All Testcases</h2>
+        <input id="test-search" type="text" placeholder="Search test name..."/>
+        <div class="filters-row">
+            <div id="status-filter" class="status-buttons">
+                <button data-status="">All</button>
+                <button data-status="passed">Passed</button>
+                <button data-status="failed">Failed</button>
+                <button data-status="skipped">Skipped</button>
+            </div>
+            <div class="download-buttons">
+                <button id="download-json">Download JSON</button>
+                <button id="download-csv">Download CSV</button>
+            </div>
+        </div>
+        <table id="test-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Properties</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="failure-classification" style="display:none"></section>
+</div>
+<script id="data-json" src="../data/results.json" type="application/json"></script>
+<script src="../static/js/app.js"></script>
+</body>
+</html>

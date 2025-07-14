@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="8" skipped="6" tests="32" time="680.323" timestamp="2025-07-14T11:07:44.542427+03:00" hostname="BynetMACOSDC16YWQ6TK"><testcase classname="tests.kal_sense.setups.test_setup_data_audio.TestSetupAudioData" name="test_remove_data" time="0.000"><skipped type="pytest.skip" message="unconditional skip">/Users/keinar/Desktop/Kaleidoo_GitHub/Kal-Sense-Automation/tests/kal_sense/setups/test_setup_data_audio.py:39: unconditional skip</skipped></testcase><testcase classname="tests.kal_sense.setups.test_setup_data_audio.TestSetupAudioData" name="test_setup_and_verify_audio_file" time="290.989"><failure message="AssertionError: Metadata loaders did not disappear within 60000ms.">tests/kal_sense/setups/test_setup_data_audio.py:67: in test_setup_and_verify_audio_file
+    files_view_page.validate_metadata_loader_disappear()
+infra/pages/files_view_page.py:51: in validate_metadata_loader_disappear
+    raise AssertionError(f"Metadata loaders did not disappear within {timeout}ms.")
+E   AssertionError: Metadata loaders did not disappear within 60000ms.</failure></testcase><testcase classname="tests.kal_sense.setups.test_setup_data_doc.TestSetupDocData" name="test_create_connector" time="13.595" /><testcase classname="tests.kal_sense.setups.test_setup_data_doc.TestSetupDocData" name="test_remove_data" time="0.000"><skipped type="pytest.skip" message="unconditional skip">/Users/keinar/Desktop/Kaleidoo_GitHub/Kal-Sense-Automation/tests/kal_sense/setups/test_setup_data_doc.py:38: unconditional skip</skipped></testcase><testcase classname="tests.kal_sense.setups.test_setup_data_doc.TestSetupDocData" name="test_setup_and_verify_doc_file" time="146.530" /><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileDocFunctional" name="test_select_file_grid_view_doc" time="5.421" /><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileDocFunctional" name="test_select_file_table_view" time="6.061"><failure message="playwright._impl._errors.Error: Locator.wait_for: Error: strict mode violation: locator(&quot;[data-testid^=\&quot;checkbox-cell-\&quot;]:nth-of-type(1)&quot;) resolved to 3 elements:&#10;    1) &lt;td data-testid=&quot;checkbox-cell-6874bcb4437beded879c3ab8&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bcb4437beded879c3ab8&quot;)&#10;    2) &lt;td data-testid=&quot;checkbox-cell-6874bc68c486e93d07595fa6&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bc68c486e93d07595fa6&quot;)&#10;    3) &lt;td data-testid=&quot;checkbox-cell-6874bc1b437beded879c3ab7&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bc1b437beded879c3ab7&quot;)&#10;&#10;Call log:&#10;waiting for locator(&quot;[data-testid^=\&quot;checkbox-cell-\&quot;]:nth-of-type(1)&quot;) to be visible">tests/kal_sense/ui_tests/flows/test_management_file.py:36: in test_select_file_table_view
+    files_page.select_file_checkbox_table_view()
+infra/pages/files_page.py:140: in select_file_checkbox_table_view
+    self.page.locator(locator).wait_for(state="visible")
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:17436: in wait_for
+    self._sync(self._impl_obj.wait_for(timeout=timeout, state=state))
+.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:670: in wait_for
+    await self._frame.wait_for_selector(
+.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:323: in wait_for_selector
+    await self._channel.send("waitForSelector", locals_to_params(locals()))
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:514: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.Error: Locator.wait_for: Error: strict mode violation: locator("[data-testid^=\"checkbox-cell-\"]:nth-of-type(1)") resolved to 3 elements:
+E       1) &lt;td data-testid="checkbox-cell-6874bcb4437beded879c3ab8"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bcb4437beded879c3ab8")
+E       2) &lt;td data-testid="checkbox-cell-6874bc68c486e93d07595fa6"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bc68c486e93d07595fa6")
+E       3) &lt;td data-testid="checkbox-cell-6874bc1b437beded879c3ab7"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bc1b437beded879c3ab7")
+E   
+E   Call log:
+E   waiting for locator("[data-testid^=\"checkbox-cell-\"]:nth-of-type(1)") to be visible</failure></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileDocFunctional" name="test_select_all_files_grid_view" time="0.000"><skipped type="pytest.skip" message="unconditional skip">/Users/keinar/Desktop/Kaleidoo_GitHub/Kal-Sense-Automation/tests/kal_sense/ui_tests/flows/test_management_file.py:39: unconditional skip</skipped></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileDocFunctional" name="test_select_all_files_table_view" time="0.000"><skipped type="pytest.skip" message="unconditional skip">/Users/keinar/Desktop/Kaleidoo_GitHub/Kal-Sense-Automation/tests/kal_sense/ui_tests/flows/test_management_file.py:47: unconditional skip</skipped></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileDocFunctional" name="test_add_doc_to_collection" time="12.251"><failure message="RuntimeError: Failed to click element '[data-testid=&quot;create&quot;]' with text 'None': Locator.click: Timeout 5000ms exceeded.&#10;Call log:&#10;waiting for locator(&quot;[data-testid=\&quot;create\&quot;]&quot;).first&#10;  -   locator resolved to &lt;button disabled dir=&quot;ltr&quot; role=&quot;button&quot; aria-label=&quot;Add&quot; aria-busy=&quot;false&quot; data-testid=&quot;create&quot; aria-disabled=&quot;true&quot; class=&quot;Button_button__GWN72  Button_buttonDisabled__1R5cH AddFilesToProjectModal_createButton__enyXx undefined    &quot;&gt;…&lt;/button&gt;&#10;  - attempting click action&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #1&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #2&#10;  -   waiting 20ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #3&#10;  -   waiting 100ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #4&#10;  -   waiting 100ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #5&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #6&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #7&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #8&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #9&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #10&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #11&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #12&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #13&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable">infra/pages/base_page.py:81: in _click_element
+    locator.first.click(timeout=timeout)
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:15110: in click
+    self._sync(
+.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:156: in click
+    return await self._frame.click(self._selector, strict=True, **params)
+.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:488: in click
+    await self._channel.send("click", locals_to_params(locals()))
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:514: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Locator.click: Timeout 5000ms exceeded.
+E   Call log:
+E   waiting for locator("[data-testid=\"create\"]").first
+E     -   locator resolved to &lt;button disabled dir="ltr" role="button" aria-label="Add" aria-busy="false" data-testid="create" aria-disabled="true" class="Button_button__GWN72  Button_buttonDisabled__1R5cH AddFilesToProjectModal_createButton__enyXx undefined    "&gt;…&lt;/button&gt;
+E     - attempting click action
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #1
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #2
+E     -   waiting 20ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #3
+E     -   waiting 100ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #4
+E     -   waiting 100ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #5
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #6
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #7
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #8
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #9
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #10
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #11
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #12
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #13
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+
+During handling of the above exception, another exception occurred:
+tests/kal_sense/ui_tests/flows/test_management_file.py:60: in test_add_doc_to_collection
+    files_page.add_to_collection("doc_collection", True)
+infra/pages/files_page.py:180: in add_to_collection
+    self._click_element(ChatFileLocators.SUBMIT_COLLECTION)
+infra/pages/base_page.py:88: in _click_element
+    raise RuntimeError(
+E   RuntimeError: Failed to click element '[data-testid="create"]' with text 'None': Locator.click: Timeout 5000ms exceeded.
+E   Call log:
+E   waiting for locator("[data-testid=\"create\"]").first
+E     -   locator resolved to &lt;button disabled dir="ltr" role="button" aria-label="Add" aria-busy="false" data-testid="create" aria-disabled="true" class="Button_button__GWN72  Button_buttonDisabled__1R5cH AddFilesToProjectModal_createButton__enyXx undefined    "&gt;…&lt;/button&gt;
+E     - attempting click action
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #1
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #2
+E     -   waiting 20ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #3
+E     -   waiting 100ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #4
+E     -   waiting 100ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #5
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #6
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #7
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #8
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #9
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #10
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #11
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #12
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #13
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable</failure></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileDocFunctional" name="test_delete_file_table_view" time="6.487"><failure message="playwright._impl._errors.Error: Locator.wait_for: Error: strict mode violation: locator(&quot;[data-testid^=\&quot;checkbox-cell-\&quot;]:nth-of-type(1)&quot;) resolved to 3 elements:&#10;    1) &lt;td data-testid=&quot;checkbox-cell-6874bcb4437beded879c3ab8&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bcb4437beded879c3ab8&quot;)&#10;    2) &lt;td data-testid=&quot;checkbox-cell-6874bc68c486e93d07595fa6&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bc68c486e93d07595fa6&quot;)&#10;    3) &lt;td data-testid=&quot;checkbox-cell-6874bc1b437beded879c3ab7&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bc1b437beded879c3ab7&quot;)&#10;&#10;Call log:&#10;waiting for locator(&quot;[data-testid^=\&quot;checkbox-cell-\&quot;]:nth-of-type(1)&quot;) to be visible">tests/kal_sense/ui_tests/flows/test_management_file.py:68: in test_delete_file_table_view
+    files_page.select_file_checkbox_table_view()
+infra/pages/files_page.py:140: in select_file_checkbox_table_view
+    self.page.locator(locator).wait_for(state="visible")
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:17436: in wait_for
+    self._sync(self._impl_obj.wait_for(timeout=timeout, state=state))
+.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:670: in wait_for
+    await self._frame.wait_for_selector(
+.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:323: in wait_for_selector
+    await self._channel.send("waitForSelector", locals_to_params(locals()))
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:514: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.Error: Locator.wait_for: Error: strict mode violation: locator("[data-testid^=\"checkbox-cell-\"]:nth-of-type(1)") resolved to 3 elements:
+E       1) &lt;td data-testid="checkbox-cell-6874bcb4437beded879c3ab8"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bcb4437beded879c3ab8")
+E       2) &lt;td data-testid="checkbox-cell-6874bc68c486e93d07595fa6"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bc68c486e93d07595fa6")
+E       3) &lt;td data-testid="checkbox-cell-6874bc1b437beded879c3ab7"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bc1b437beded879c3ab7")
+E   
+E   Call log:
+E   waiting for locator("[data-testid^=\"checkbox-cell-\"]:nth-of-type(1)") to be visible</failure></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileAudioFunctional" name="test_select_file_grid_view_audio" time="5.138" /><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileAudioFunctional" name="test_select_file_table_view_audio" time="6.659"><failure message="playwright._impl._errors.Error: Locator.wait_for: Error: strict mode violation: locator(&quot;[data-testid^=\&quot;checkbox-cell-\&quot;]:nth-of-type(1)&quot;) resolved to 4 elements:&#10;    1) &lt;td data-testid=&quot;checkbox-cell-6874bbc0437beded879c3ab6&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bbc0437beded879c3ab6&quot;)&#10;    2) &lt;td data-testid=&quot;checkbox-cell-6874bb72c486e93d07595fa5&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bb72c486e93d07595fa5&quot;)&#10;    3) &lt;td data-testid=&quot;checkbox-cell-6874bb2412103f2a383a415c&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bb2412103f2a383a415c&quot;)&#10;    4) &lt;td data-testid=&quot;checkbox-cell-6874bad6437beded879c3ab5&quot;&gt;…&lt;/td&gt; aka get_by_test_id(&quot;checkbox-cell-6874bad6437beded879c3ab5&quot;)&#10;&#10;Call log:&#10;waiting for locator(&quot;[data-testid^=\&quot;checkbox-cell-\&quot;]:nth-of-type(1)&quot;) to be visible">tests/kal_sense/ui_tests/flows/test_management_file.py:103: in test_select_file_table_view_audio
+    files_page.select_file_checkbox_table_view()
+infra/pages/files_page.py:140: in select_file_checkbox_table_view
+    self.page.locator(locator).wait_for(state="visible")
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:17436: in wait_for
+    self._sync(self._impl_obj.wait_for(timeout=timeout, state=state))
+.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:670: in wait_for
+    await self._frame.wait_for_selector(
+.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:323: in wait_for_selector
+    await self._channel.send("waitForSelector", locals_to_params(locals()))
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:514: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.Error: Locator.wait_for: Error: strict mode violation: locator("[data-testid^=\"checkbox-cell-\"]:nth-of-type(1)") resolved to 4 elements:
+E       1) &lt;td data-testid="checkbox-cell-6874bbc0437beded879c3ab6"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bbc0437beded879c3ab6")
+E       2) &lt;td data-testid="checkbox-cell-6874bb72c486e93d07595fa5"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bb72c486e93d07595fa5")
+E       3) &lt;td data-testid="checkbox-cell-6874bb2412103f2a383a415c"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bb2412103f2a383a415c")
+E       4) &lt;td data-testid="checkbox-cell-6874bad6437beded879c3ab5"&gt;…&lt;/td&gt; aka get_by_test_id("checkbox-cell-6874bad6437beded879c3ab5")
+E   
+E   Call log:
+E   waiting for locator("[data-testid^=\"checkbox-cell-\"]:nth-of-type(1)") to be visible</failure></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileAudioFunctional" name="test_select_all_files_grid_view_audio" time="0.000"><skipped type="pytest.skip" message="unconditional skip">/Users/keinar/Desktop/Kaleidoo_GitHub/Kal-Sense-Automation/tests/kal_sense/ui_tests/flows/test_management_file.py:106: unconditional skip</skipped></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileAudioFunctional" name="test_select_all_files_table_view_audio" time="0.000"><skipped type="pytest.skip" message="unconditional skip">/Users/keinar/Desktop/Kaleidoo_GitHub/Kal-Sense-Automation/tests/kal_sense/ui_tests/flows/test_management_file.py:114: unconditional skip</skipped></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileAudioFunctional" name="test_add_audio_to_collection" time="11.406"><failure message="RuntimeError: Failed to click element '[data-testid=&quot;create&quot;]' with text 'None': Locator.click: Timeout 5000ms exceeded.&#10;Call log:&#10;waiting for locator(&quot;[data-testid=\&quot;create\&quot;]&quot;).first&#10;  -   locator resolved to &lt;button disabled dir=&quot;ltr&quot; role=&quot;button&quot; aria-label=&quot;Add&quot; aria-busy=&quot;false&quot; data-testid=&quot;create&quot; aria-disabled=&quot;true&quot; class=&quot;Button_button__GWN72  Button_buttonDisabled__1R5cH AddFilesToProjectModal_createButton__enyXx undefined    &quot;&gt;…&lt;/button&gt;&#10;  - attempting click action&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #1&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #2&#10;  -   waiting 20ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #3&#10;  -   waiting 100ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #4&#10;  -   waiting 100ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #5&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #6&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #7&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #8&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #9&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #10&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #11&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #12&#10;  -   waiting 500ms&#10;  -   waiting for element to be visible, enabled and stable&#10;  -   element is not enabled&#10;  - retrying click action, attempt #13&#10;  -   waiting 500ms">infra/pages/base_page.py:81: in _click_element
+    locator.first.click(timeout=timeout)
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:15110: in click
+    self._sync(
+.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:156: in click
+    return await self._frame.click(self._selector, strict=True, **params)
+.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:488: in click
+    await self._channel.send("click", locals_to_params(locals()))
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:514: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Locator.click: Timeout 5000ms exceeded.
+E   Call log:
+E   waiting for locator("[data-testid=\"create\"]").first
+E     -   locator resolved to &lt;button disabled dir="ltr" role="button" aria-label="Add" aria-busy="false" data-testid="create" aria-disabled="true" class="Button_button__GWN72  Button_buttonDisabled__1R5cH AddFilesToProjectModal_createButton__enyXx undefined    "&gt;…&lt;/button&gt;
+E     - attempting click action
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #1
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #2
+E     -   waiting 20ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #3
+E     -   waiting 100ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #4
+E     -   waiting 100ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #5
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #6
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #7
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #8
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #9
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #10
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #11
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #12
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #13
+E     -   waiting 500ms
+
+During handling of the above exception, another exception occurred:
+tests/kal_sense/ui_tests/flows/test_management_file.py:127: in test_add_audio_to_collection
+    files_page.add_to_collection("audio_collection", True)
+infra/pages/files_page.py:180: in add_to_collection
+    self._click_element(ChatFileLocators.SUBMIT_COLLECTION)
+infra/pages/base_page.py:88: in _click_element
+    raise RuntimeError(
+E   RuntimeError: Failed to click element '[data-testid="create"]' with text 'None': Locator.click: Timeout 5000ms exceeded.
+E   Call log:
+E   waiting for locator("[data-testid=\"create\"]").first
+E     -   locator resolved to &lt;button disabled dir="ltr" role="button" aria-label="Add" aria-busy="false" data-testid="create" aria-disabled="true" class="Button_button__GWN72  Button_buttonDisabled__1R5cH AddFilesToProjectModal_createButton__enyXx undefined    "&gt;…&lt;/button&gt;
+E     - attempting click action
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #1
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #2
+E     -   waiting 20ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #3
+E     -   waiting 100ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #4
+E     -   waiting 100ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #5
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #6
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #7
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #8
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #9
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #10
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #11
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #12
+E     -   waiting 500ms
+E     -   waiting for element to be visible, enabled and stable
+E     -   element is not enabled
+E     - retrying click action, attempt #13
+E     -   waiting 500ms</failure></testcase><testcase classname="tests.kal_sense.ui_tests.flows.test_management_file.TestManagementFileAudioFunctional" name="test_delete_file_grid_view_audio" time="6.073" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_upload_multiple_files[audio_file.wav]" time="12.184" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_upload_multiple_files[audio_file_short.ogg]" time="6.553" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_upload_multiple_files[cut_file.ogg]" time="6.908" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_verify_audio_file_uploaded[audio_file.wav]" time="10.677" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_verify_audio_file_uploaded[audio_file_short.ogg]" time="10.733" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_verify_audio_file_uploaded[cut_file.ogg]" time="10.604" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_verify_audio_file_uploaded_is_accessible[audio_file.wav]" time="11.385" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_verify_audio_file_uploaded_is_accessible[audio_file_short.ogg]" time="11.742" /><testcase classname="tests.kal_sense.ui_tests.flows.test_upload_file.TestUploadFile" name="test_verify_audio_file_uploaded_is_accessible[cut_file.ogg]" time="11.921" /><testcase classname="tests.kal_sense.ui_tests.pages.test_collections_page.TestCollectionsPageFunctional" name="test_create_collection" time="4.830" /><testcase classname="tests.kal_sense.ui_tests.pages.test_collections_page.TestCollectionsPageFunctional" name="test_validate_collection_created" time="4.556" /><testcase classname="tests.kal_sense.ui_tests.pages.test_collections_page.TestCollectionsPageFunctional" name="test_delete_collection" time="4.695" /><testcase classname="tests.kal_sense.ui_tests.pages.test_history_page.TestHistoryPage" name="test_ask_assistant_as_admin" time="8.162"><failure message="Exception: Chat doesn't work">tests/kal_sense/ui_tests/pages/test_history_page.py:42: in test_ask_assistant_as_admin
+    chat.validate_chat_result()
+infra/components/bottom_chat.py:53: in validate_chat_result
+    raise Exception("Chat doesn't work")
+E   Exception: Chat doesn't work</failure></testcase><testcase classname="tests.kal_sense.ui_tests.pages.test_history_page.TestHistoryPage" name="test_ask_assistant_as_regular" time="8.246"><failure message="AssertionError: URL 'https://kal-sense.qa.kaleidoo-dev.com/403' does not end with '/conversation'">tests/kal_sense/ui_tests/pages/test_history_page.py:36: in test_ask_assistant_as_regular
+    chat.validate_chat_result()
+infra/components/bottom_chat.py:48: in validate_chat_result
+    self._assert_url_endswith(DataCommon.RESULTS_ENDPOINT)
+infra/pages/base_page.py:386: in _assert_url_endswith
+    raise AssertionError(
+E   AssertionError: URL 'https://kal-sense.qa.kaleidoo-dev.com/403' does not end with '/conversation'</failure></testcase><testcase classname="tests.kal_sense.ui_tests.pages.test_history_page.TestHistoryPage" name="test_history_exists_as_regular" time="8.417" /></testsuite></testsuites>
