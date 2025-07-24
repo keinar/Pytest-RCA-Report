@@ -1,3 +1,20 @@
+Metadata-Version: 2.4
+Name: pytest-rca-report
+Version: 0.1.0
+Summary: Interactive RCA report generator for pytest runs, with AI-based analysis and visual dashboard
+Author-email: Keinar Elkayam <keinar.elkayam@kaleidoo.ai>
+License: MIT
+Project-URL: Homepage, https://github.com/keinar/pytest-rca-report
+Project-URL: Repository, https://github.com/keinar/pytest-rca-report
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: python-dotenv
+Requires-Dist: openai
+Dynamic: license-file
+
 # RCA Report Generator
 
 A modern, interactive reporting dashboard for Pytest-based QA automation projects.  
@@ -20,7 +37,7 @@ Generates a clear Root Cause Analysis (RCA) report, supporting rapid investigati
 ## Demo
 
 <p align="center">
-  <img src="https://github.com/keinar/pytest-rca-report/raw/main/demo.gif" width="900" alt="RCA Dashboard Demo">
+  <img src="./demo.gif" width="900" alt="RCA Dashboard Demo">
 </p>
 
 

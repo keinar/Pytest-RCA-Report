@@ -13,7 +13,7 @@ function bugToString(bug) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    fetch('../data/results.json')
+    fetch('results.json')
         .then(resp => {
             if (!resp.ok) throw new Error('HTTP ' + resp.status);
             return resp.json();
@@ -212,7 +212,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Download JSON
             document.getElementById('download-json').onclick = function() {
-                fetch('../data/results.json')
+                fetch('results.json')
                     .then(r=>r.blob())
                     .then(blob=>{
                         const url = URL.createObjectURL(blob);

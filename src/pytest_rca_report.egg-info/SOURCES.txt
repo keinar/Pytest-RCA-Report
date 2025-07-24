@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/pytest_rca_report.egg-info/PKG-INFO
+src/pytest_rca_report.egg-info/SOURCES.txt
+src/pytest_rca_report.egg-info/dependency_links.txt
+src/pytest_rca_report.egg-info/entry_points.txt
+src/pytest_rca_report.egg-info/requires.txt
+src/pytest_rca_report.egg-info/top_level.txt
+src/rca_report/__init__.py
+src/rca_report/parser.py
+src/rca_report/assets/index.html
+src/rca_report/assets/static/css/style.css
+src/rca_report/assets/static/js/app.js
