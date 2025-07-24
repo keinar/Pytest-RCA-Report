@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytest-rca-report"
+version = "0.1.0"
+description = "Interactive RCA report generator for pytest runs, with AI-based analysis and visual dashboard"
+readme = "README.md"
+authors = [
+  { name = "Keinar Elkayam", email = "keinar.elkayam@kaleidoo.ai" }
+]
+license = {text = "MIT"}
+requires-python = ">=3.9"
+
+# Requirements inferred from requirements.txt + parser.py
+dependencies = [
+  "matplotlib",
+  "numpy",
+  "python-dotenv",
+  "openai"
+]
+
+[project.urls]
+Homepage = "https://github.com/keinar/pytest-rca-report"
+Repository = "https://github.com/keinar/pytest-rca-report"
+
+# CLI support
+[project.scripts]
+pytest-rca-report = "rca_report.parser:main"
+
+# Source layout
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"rca_report" = ["assets/*", "assets/**/*"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
