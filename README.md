@@ -1,7 +1,7 @@
-# RCA Report Generator
+# Pytest-RCA-Report
 
-A modern, interactive reporting dashboard for Pytest-based QA automation projects.  
-Generates a clear Root Cause Analysis (RCA) report, supporting rapid investigation, team triage, and continuous improvement.
+An interactive Root Cause Analysis (RCA) dashboard for any Pytest project.  
+Quickly visualize, triage, and investigate test failures with actionable LLM-powered insights.
 
 ## Features
 
@@ -24,121 +24,28 @@ Generates a clear Root Cause Analysis (RCA) report, supporting rapid investigati
 </p>
 
 
-## Quick Start
+## Installation
 
-You can also install via pip if available:
 ```bash
 pip install pytest-rca-report
 ```
 
-### 1. **Download and Set Up**
+## Usage
 
-1. **Clone or download this repository**:
+1. Run your tests with JUnit XML output:
    ```bash
-   git clone https://github.com/keinar/pytest-rca-report.git
+   pytest --junitxml=pytest-results.xml
    ```
-   Or [download as ZIP](https://github.com/keinar/pytest-rca-report/archive/refs/heads/main.zip) and extract.
-
-2. *(Optional)* Move or symlink the folder into your automation project repo.
-   > You can keep this tool anywhere, but for convenience, place it inside or next to your main automation repo.
-
-3. **Install dependencies**:
+2. Generate the RCA report:
    ```bash
-   cd pytest-rca-report
-   pip install -r requirements.txt
+   pytest-rca-report
    ```
+3. View the dashboard:
+   ```bash
+   python -m http.server --directory dashboard
+   ```
+   Then open [http://localhost:8000/index.html](http://localhost:8000/index.html) in your browser.
 
----
-
-### 2. **Generate pytest results and log**
-
-After running your test suite, make sure to have:
-- `pytest-results.xml` (Pytest JUnit XML output)
-- `automation.log` (optional, for enhanced RCA)
-
-Example:
-```bash
-pytest --junitxml=pytest-results.xml
-```
-
----
-
-### 3. **Run the RCA generator**
-
-Navigate to the `pytest-rca-report` directory and run:
-
-```bash
-python parser.py
-```
-- Requires Python 3.9+ and OpenAI API key set as `OPENAI_API_KEY` in your environment.
-- The script will **automatically create the `data/` folder** if it doesn't exist, and will generate `data/results.json`.
-- At the end of the run, the interactive dashboard will be generated in the `./dashboard` folder.
-- **Due to browser security (CORS) restrictions, you should view the dashboard using a local web server.**  
-  To view the dashboard with full data, run:
-  ```
-  python -m http.server 8000 --directory dashboard
-  ```
-  Then open:
-  ```
-  http://localhost:8000/index.html
-  ```
-- On most systems, the dashboard will also open automatically after the script completes.
-
----
-
-**Compatibility:**  
-_The RCA Report Generator works with any Pytest project that produces a JUnit XML file – from unit tests to full end-to-end suites._
-
----
-
-## Configuration
-
-The main script (`parser.py`) uses the following paths and model by default:
-```python
-XML_PATH = './pytest-results.xml'
-LOG_PATH = './automation.log'
-OUT_JSON = './data/results.json'
-MODEL = 'gpt-4o-mini'
-```
-
-- If your files are located elsewhere, or you wish to change the output location or LLM model, edit these variables at the top of `parser.py`.
-
-- Supported OpenAI models: you can specify any available chat/completions model (e.g., `gpt-4o-mini`, `gpt-4-turbo`).
-
----
-
-## Folder Structure
-
-```
-pytest-rca-report/
-├── src/
-│   └── rca_report/
-│       ├── __init__.py
-│       ├── parser.py
-│       ├── assets/
-│       │   ├── index.html
-│       │   └── static/
-│       │       ├── css/
-│       │       │   └── style.css
-│       │       └── js/
-│       │           └── app.js
-├── data/
-│   └── results.json        # Processed summary/report file (generated)
-├── dashboard/              # Generated interactive dashboard (after running parser.py)
-│   └── index.html
-│   └── static/
-├── pytest-results.xml      # Input: JUnit XML from Pytest
-├── automation.log          # Input: test logs (optional)
-├── pyproject.toml
-├── README.md
-├── LICENSE
-├── .env.example
-├── .gitignore
-```
-
-> Note: When installed via pip, you can run the CLI from any directory. All assets are included in the package under `src/rca_report/assets/`.
-
----
 
 ## Usage & Navigation
 
@@ -157,48 +64,15 @@ pytest-rca-report/
 
 ---
 
-## Customization
-
-- To further enhance analysis, you can add more `record_property` info in your Pytest tests (these appear as custom properties in the report).
-- All frontend code (JS/CSS/HTML) is modular and can be extended as needed.
-
----
 
 ## Requirements
 
-- Python 3.9+  
-- [OpenAI Python SDK](https://github.com/openai/openai-python)  
-- Internet access for LLM processing  
-- A modern browser (Chrome, Firefox, Edge, Safari)
-
-You can install dependencies either by cloning the repo and running:
-```bash
-pip install -r requirements.txt
-```
-or by installing the package from PyPI (if available):
-```bash
-pip install pytest-rca-report
-```
-
----
+- Python 3.9+
+- OpenAI API key (set as `OPENAI_API_KEY` in your environment)
 
 ## Troubleshooting
 
-- **results.json not found?** Run `parser.py` after you have a fresh `pytest-results.xml`.
-- **Chart not showing?** Ensure you have execution time data in the XML.
-- **CORS issues / Dashboard not loading data?**  
-  Due to browser security restrictions, opening `index.html` directly via `file://` will not load data properly.  
-  Instead, serve the `dashboard` folder with a local web server:  
-  ```bash
-  python -m http.server 8000 --directory dashboard
-  ```
-  Then open in your browser:  
-  ```
-  http://localhost:8000/index.html
-  ```
-- **LLM recommendations irrelevant?** Refine the prompt in `parser.py`.
-
----
+- If the dashboard doesn't load data, always serve the `dashboard` folder with a local web server (not by opening the HTML file directly).
 
 ## Roadmap / Suggestions
 
@@ -207,8 +81,3 @@ pip install pytest-rca-report
 - Integration with defect tracking (Jira etc.)
 - Team comments on test failures
 
----
-
-## License
-
-[MIT License](https://github.com/keinar/pytest-rca-report/blob/main/LICENSE)

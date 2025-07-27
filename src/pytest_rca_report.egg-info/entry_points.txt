@@ -1,2 +1,0 @@
-[console_scripts]
-pytest-rca-report = rca_report.parser:main

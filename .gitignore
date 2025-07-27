@@ -6,3 +6,6 @@ __pycache__/
 *.log
 .venv/
 .idea/
+dist/*
+dist
+src/pytest_rca_report.egg-info/

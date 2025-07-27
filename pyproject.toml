@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pytest-rca-report"
-version = "0.1.0"
+version = "0.1.2"
 description = "Interactive RCA report generator for pytest runs, with AI-based analysis and visual dashboard"
 readme = "README.md"
 authors = [

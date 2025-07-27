@@ -1,4 +1,0 @@
-matplotlib
-numpy
-python-dotenv
-openai
