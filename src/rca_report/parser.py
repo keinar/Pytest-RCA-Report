@@ -1,3 +1,28 @@
+def parse_testcases_from_xml(xml_path):
+    """Parse testcases from JUnit XML, inferring status directly from tags."""
+    import xml.etree.ElementTree as ET
+    tree = ET.parse(xml_path)
+    tcs = []
+    for tc in tree.findall('.//testcase'):
+        name = tc.get('classname', '') + '.' + tc.get('name', '')
+        # Status logic: failed > skipped > passed
+        status = 'passed'
+        if tc.find('failure') is not None:
+            status = 'failed'
+        elif tc.find('skipped') is not None:
+            status = 'skipped'
+        # Parse properties
+        props = {}
+        props_node = tc.find('properties')
+        if props_node is not None:
+            for p in props_node.findall('property'):
+                props[p.get('name')] = p.get('value')
+        tcs.append({
+            "name": name,
+            "status": status,
+            "properties": props
+        })
+    return tcs
 import json
 import os
 import sys
@@ -15,6 +40,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import importlib.resources
 import shutil
+from datetime import datetime
+
+# All output files will be placed under the "dashboard" directory
 
 def main():
     # Load environment
@@ -27,7 +55,8 @@ def main():
     # Paths
     XML_PATH = './pytest-results.xml'
     LOG_PATH = './automation.log'
-    OUT_JSON = './data/results.json'
+    dashboard_dir = Path.cwd() / "dashboard"
+    results_json_path = dashboard_dir / "results.json"
     MODEL = 'gpt-4o-mini'
 
     # Read inputs
@@ -87,6 +116,47 @@ def main():
         sys.exit(1)
     data = json.loads(match.group(1))
 
+    # Always use testcases parsed directly from the XML, NOT from LLM!
+    testcases = parse_testcases_from_xml(XML_PATH)
+    data['testcases'] = testcases
+
+    # --- Improved negative test handling and reporting ---
+    # Count negative and regular test results separately based on parsed XML testcases.
+    neg_passed = neg_failed = neg_skipped = 0
+    reg_passed = reg_failed = reg_skipped = 0
+
+    for tc in testcases:
+        is_negative = tc['properties'].get('negative') in [True, "true", "True", 1, "1"]
+        status = tc['status']
+        if is_negative:
+            if status == 'passed':
+                neg_passed += 1
+            elif status == 'failed':
+                neg_failed += 1
+            elif status == 'skipped':
+                neg_skipped += 1
+        else:
+            if status == 'passed':
+                reg_passed += 1
+            elif status == 'failed':
+                reg_failed += 1
+            elif status == 'skipped':
+                reg_skipped += 1
+
+    data['summary'] = {
+        "passed": reg_passed + neg_passed,
+        "failed": reg_failed + neg_failed,
+        "skipped": reg_skipped + neg_skipped,
+        "regular_passed": reg_passed,
+        "regular_failed": reg_failed,
+        "regular_skipped": reg_skipped,
+        "negative_total": neg_passed + neg_failed + neg_skipped,
+        "negative_passed": neg_passed,
+        "negative_failed": neg_failed,
+        "negative_skipped": neg_skipped,
+        "explanation": "Negative tests (with property negative=true) are counted and displayed separately for full transparency."
+    }
+
     # Extract execution times and test names
     times = []
     name_time = []
@@ -132,25 +202,20 @@ def main():
         data['chart_time_dist'] = f"data:image/png;base64,{img_b64}"
         plt.close(fig)
 
-    # Write JSON
-    data_dir = Path('./data')
-    data_dir.mkdir(exist_ok=True)
-    Path(OUT_JSON).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
-    print(f"Wrote summary + times + slowest tests JSON to {OUT_JSON}")
+    # --- New order for output and assets ---
 
-    # Copy dashboard assets to ./dashboard and open index.html
+    # Copy (and update) dashboard assets, but do NOT delete dashboard_dir or its contents (history, etc.)
     try:
-        dashboard_dir = Path.cwd() / "dashboard"
-        if dashboard_dir.exists():
-            shutil.rmtree(dashboard_dir)
-        shutil.copytree(importlib.resources.files("rca_report").joinpath("assets"), dashboard_dir)
+        assets_path = importlib.resources.files("rca_report").joinpath("assets")
+        if not dashboard_dir.exists():
+            dashboard_dir.mkdir(parents=True)
+        for item in assets_path.iterdir():
+            dest = dashboard_dir / item.name
+            if item.is_dir():
+                shutil.copytree(item, dest, dirs_exist_ok=True)
+            else:
+                shutil.copy2(item, dest)
         print(f"\n📊 Dashboard assets copied to: {dashboard_dir}")
-        # Copy results.json to dashboard directory
-        try:
-            shutil.copy2(OUT_JSON, dashboard_dir / "results.json")
-            print(f"Copied results JSON to: {dashboard_dir / 'results.json'}")
-        except Exception as e:
-            print(f"Could not copy results.json to dashboard: {e}")
 
         print(f"Open your report in your browser:\nfile://{dashboard_dir / 'index.html'}\n")
         # Commented out automatic browser opening to comply with instructions
@@ -168,6 +233,31 @@ def main():
         )
     except Exception as e:
         print(f"Could not copy dashboard assets: {e}")
+
+    # Ensure dashboard/data/history directory exists before writing
+    history_dir = dashboard_dir / "data" / "history"
+    history_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime('%Y-%m-%dT%H-%M-%S')
+    history_file = history_dir / f"results_{timestamp}.json"
+    Path(history_file).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(f"Wrote history JSON to {history_file}")
+
+    # Copy newest history file to dashboard/results.json
+    try:
+        shutil.copy2(history_file, results_json_path)
+        print(f"Copied newest results to {results_json_path}")
+    except Exception as e:
+        print(f"ERROR: could not copy newest results to {results_json_path}: {e}", file=sys.stderr)
+
+    # Print summary of available history JSON files sorted by creation date
+    try:
+        history_files = list(history_dir.glob("results_*.json"))
+        history_files.sort(key=lambda f: f.stat().st_ctime)
+        print("\nAvailable history reports:")
+        for hf in history_files:
+            print(f"  - {hf.name}")
+    except Exception as e:
+        print(f"Could not list history reports: {e}", file=sys.stderr)
 
 if __name__ == "__main__":
     main()

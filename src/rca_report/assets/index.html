@@ -10,6 +10,14 @@
 <div class="container">
     <h1>Root Cause Analysis Report</h1>
 
+    <section id="history">
+        <h2>Run History</h2>
+        <p><em>Newest/current run is shown by default.</em></p>
+        <div id="history-list">
+            <!-- History items will be rendered here dynamically by app.js -->
+        </div>
+    </section>
+
     <section id="summary">
         <h2>Results Summary</h2>
         <div id="summary-table"></div>
@@ -21,6 +29,11 @@
             <canvas id="summary-pie" width="200" height="200"></canvas>
             <canvas id="summary-bar" width="200" height="200"></canvas>
         </div>
+    </section>
+
+    <section id="regression-trends" style="display:none;">
+        <h2>Regression Trends</h2>
+        <canvas id="regression-chart" width="800" height="280"></canvas>
     </section>
 
     <section id="anomalies">
@@ -82,7 +95,6 @@
 
     <section id="failure-classification" style="display:none"></section>
 </div>
-<script id="data-json" src="results.json" type="application/json"></script>
 <script src="./static/js/app.js"></script>
 </body>
 </html>

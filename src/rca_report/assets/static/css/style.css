@@ -202,3 +202,63 @@ tr.skipped td { background: #fffde7; }
     margin: 0 auto;
   }
 }
+
+/* Run History Section */
+#history {
+  margin-bottom: 32px;
+  padding: 22px 22px 10px 22px;
+  background: #fffefc;
+  border-radius: 11px;
+  box-shadow: 0 2px 7px rgba(64,90,144,0.07);
+}
+
+#history h2 {
+  margin-bottom: 9px;
+}
+
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-left: 0;
+  margin: 0 0 10px 0;
+  list-style: none;
+}
+
+.run-history-item {
+  padding: 9px 18px;
+  background: #f2f6fa;
+  border-radius: 7px;
+  border: 1.5px solid #e0e8f2;
+  cursor: pointer;
+  transition: background 0.15s, border 0.13s, color 0.16s;
+  position: relative;
+  font-size: 1.08em;
+  color: #375280;
+  font-weight: 500;
+}
+.run-history-item.selected {
+  background: #dbeaff;
+  border-color: #4d91ef;
+  color: #1b355b;
+  font-weight: bold;
+}
+.run-history-item.selected .run-check {
+  display: inline-block;
+  color: #21892c;
+  font-size: 1.14em;
+  margin-right: 4px;
+}
+.run-history-item .run-check {
+  display: none;
+}
+.run-history-item:hover {
+  background: #e7f0fa;
+  border-color: #90b4e7;
+}
+#history .run-history-note {
+  font-size: 1em;
+  color: #668;
+  margin-bottom: 0;
+  margin-top: 0;
+}
